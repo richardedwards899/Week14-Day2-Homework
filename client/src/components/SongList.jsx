@@ -1,5 +1,5 @@
 import React from 'react'
-// import Comment from './Comment.jsx'
+import Song from './Song.jsx'
 
 //SongList is created with props: 'songs'
 class SongList extends React.Component {
@@ -10,8 +10,12 @@ class SongList extends React.Component {
 
     const songNodes = this.props.songs.map((song, index) => {
       return (
-        // <Song author={comment.author} key={comment.id}>{comment.text}</Song>
-        <p>{index}</p>
+        <Song
+          genre={song.category.attributes.label}
+          key={index} chartPosition={index}
+          artist={song["im:artist"].label}
+          title={song["im:name"].label}>
+        </Song>
       )
     })
 
